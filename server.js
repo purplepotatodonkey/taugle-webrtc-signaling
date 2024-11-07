@@ -14,10 +14,11 @@ const io = new Server(server, {
 });
 
 io.on('connection', (socket) => {
-  console.log('New client connected', socket.id);
+  socket.emit('New client connected', socket.id);
 
   socket.on('message', (message) => {
     socket.broadcast.emit('message', message);
+    console.log("message", message)
   });
 
   socket.on('disconnect', () => {

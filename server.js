@@ -17,17 +17,17 @@ io.on('connection', (socket) => {
   socket.emit('New client connected', socket.id);
 
   socket.on('offer', (offer) => {
-    socket.broadcast.emit('offer server', offer);
+    socket.broadcast.emit('offer', offer);
     console.log("offer server", offer)
   });
 
   socket.on('answer', (answer) => {
-    socket.broadcast.emit('answer server', answer);
+    socket.broadcast.emit('answer', answer);
     console.log("answer server", answer)
   });
 
   socket.on('ice-candidate', (candidate) => {
-    socket.broadcast.emit('ice-candidate server', candidate);
+    socket.broadcast.emit('ice-candidate', candidate);
     console.log("ice-candidate server", candidate)
   });
 
